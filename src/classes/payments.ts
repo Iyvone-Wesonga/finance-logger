@@ -1,4 +1,4 @@
-//implementing an inteface
+//implementing,an inteface
 
 import{ HasFormatter} from '../interfaces/hasformatter.js' //the two dots show the nesting of the interfaces folder
 
@@ -17,6 +17,6 @@ export class Payment implements HasFormatter {
    //method instance
    //this format follows the inetrface of hasformatter
    format(){
-       return`This ${this.recipient} owed you ${this.amount} for ${this.details}`
+       return`You owe ${this.recipient} ${this.amount} for ${this.details}`
    }
 }

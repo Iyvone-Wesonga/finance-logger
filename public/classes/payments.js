@@ -1,4 +1,4 @@
-//implementing an inteface
+//implementing,an inteface
 export class Payment {
     //structure of the invoices--property instance
     constructor(c, d, a) {
@@ -9,6 +9,6 @@ export class Payment {
     //method instance
     //this format follows the inetrface of hasformatter
     format() {
-        return `This ${this.recipient} owed you ${this.amount} for ${this.details}`;
+        return `You owe ${this.recipient} ${this.amount} for ${this.details}`;
     }
 }
