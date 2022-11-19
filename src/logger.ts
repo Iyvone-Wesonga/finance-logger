@@ -153,13 +153,20 @@ const amount=document.querySelector("#amount") as HTMLInputElement;
 
 form.addEventListener("submit", (e:Event)=>{
     e.preventDefault()  //the page wont refresh on submission, its a method add the friggin ()
+//tupling order of arrangement
+   let doc:HasFormatter; //can only have hasformatter method; can be invoice or payment
+   let values:[string, string, number]=[tofrom.value, details.value, amount.valueAsNumber]
+      //we then can spread the values tuples to pass elements outside
+      //spread syntax=... 
 
-let doc:HasFormatter; //can only have hasformatter method; can be invoice or payment
+   if(type.value==='invoice'){
+         //doc=new Invoice(tofrom.value, details.value, amount.valueAsNumber) //tekes the invoice templte object and replaces the client, details and amount with the users input
+            doc=new Invoice(...values)
 
-if(type.value==='invoice'){
-    doc=new Invoice(tofrom.value, details.value, amount.valueAsNumber) //tekes the invoice templte object and replaces the client, details and amount with the users input
-}else{
-    doc=new Payment(tofrom.value, details.value, amount.valueAsNumber) //only have two options, payment or invoice and the doc changes type with regards to the type. also, bothe object tmeplates have the method interface reuired of the docs objects
+
+   }else{
+          doc=new Payment(...values)
+          //doc=new Payment(tofrom.value, details.value, amount.valueAsNumber) //only have two options, payment or invoice and the doc changes type with regards to the type. also, bothe object tmeplates have the method interface reuired of the docs objects
 }
 //console.log(doc)//returns the full object
 //console.log(doc.format())//adding format will return a string
